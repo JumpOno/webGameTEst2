@@ -1,4 +1,5 @@
 import pygame
+import asyncio
 
 # 画面サイズ設定
 SCR_W = 800
@@ -274,51 +275,40 @@ class mainGame(state):
 
 # **************************************************************
 
-def main():
-    pygame.init()
-    screen = pygame.display.set_mode((SCR_W, SCR_H))
-    pygame.display.set_caption("Word Chain")
-    # メイン画面の色設定（引数：RGB）
+
+async def main():
+    """
+    ゲームのメインループ
+    """
+    going = True
+    font = pygame.font.Font("ipaexg.ttf", 30)
     screen.fill((220, 220, 220))
 
-    # メイン画面の更新
-    pygame.display.update()
-
-    # Clockオブジェクトの生成
-    clock = pygame.time.Clock()
-    # ループを続けるかのフラグ
-    going = True
-
-    # フォントオブジェクト生成（引数：フォント名とフォントサイズ）. フォント名にNoneを指定するとPygameの既定のフォントになる
-    font = pygame.font.Font(None, 30)
-
-    # 状態オブジェクト。とりあえず、タイトル画面、メインゲーム画面を作成して、statesに登録。
+    # ゲーム状態を管理するオブジェクト
     states = [title(font), mainGame(font)]
+    # currentState = ST_TITLE
+    currentState = ST_MAIN_GAME
 
-    # current（現在）の状態を表す変数。初期はタイトル画面状態。
-    currentState = ST_TITLE
-
-    # 終了イベント発生までループをまわす
+    # ゲームのメインループ
     while going:
-        # イベントを取得
+        # イベントを取得。イベントとは、マウスの操作やキーボードの操作等。
+        # イベントの発生が無い場合、このfor文は動かない。
         for event in pygame.event.get():
             screen.fill((220, 220, 220))
             states[currentState].draw(screen)
 
-            # 終了イベント（画面の×ボタン押下など）の場合、
-            # ループを抜ける
+            # 終了イベント（画面の×ボタン押下など）の場合、ループを抜ける
             if event.type == pygame.QUIT:
                 going = False
 
-            #
+            # 発生したイベントに応じてゲームの状態を変更する
             currentState = states[currentState].handle_event(event)
 
-            # フレームレート（1秒間に何回画面を更新するか）の設定
-            pygame.display.update()
-        clock.tick(10)
-    # 終了処理
+        pygame.display.update()
+        await asyncio.sleep(0)  # You must include this statement in your main loop. Keep the argument at 0.
+        clock.tick(60)
+
     pygame.quit()
 
 
-if __name__ == '__main__':
-    main()
+asyncio.run(main())
