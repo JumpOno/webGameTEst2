@@ -1,6 +1,11 @@
 import pygame
 import asyncio
 
+
+pygame.init()
+screen = pygame.display.set_mode((SCR_W, SCR_H))
+clock = pygame.time.Clock()
+
 # 画面サイズ設定
 SCR_W = 800
 SCR_H = 600
