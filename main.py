@@ -169,16 +169,16 @@ class mainGame(state):
 
         # ゲームで使用するカードを作成
         self.cards = [
-            Card(100, 400, 100, 100, (0, 0, 0), "resource/うさぎ.jpg","うさぎ"),
-            Card(200, 400, 100, 100, (0, 0, 0), "resource/サムライ.jpg","サムライ"),
-            Card(300, 400, 100, 100, (0, 0, 0), "resource/ざる.jpg","ざる"),
-            Card(400, 400, 100, 100, (0, 0, 0), "resource/ルーレット.jpg","るーれっと"),
-            Card(500, 400, 100, 100, (0, 0, 0), "resource/餃子.jpg","ぎょうざ"),
-            Card(100, 500, 100, 100, (0, 0, 0), "resource/虎.jpg","とら"),
-            Card(200, 500, 100, 100, (0, 0, 0), "resource/組体操.jpg","くみたいそう"),
-            Card(300, 500, 100, 100, (0, 0, 0), "resource/台風.jpg","たいふう"),
-            Card(400, 500, 100, 100, (0, 0, 0), "resource/豚カツ.jpg","とんかつ"),
-            Card(500, 500, 100, 100, (0, 0, 0), "resource/料理.jpg","りょうり"),
+            Card(100, 400, 100, 100, (0, 0, 0), "resource/usagi.jpg","うさぎ"),
+            Card(200, 400, 100, 100, (0, 0, 0), "resource/samurai.jpg","サムライ"),
+            Card(300, 400, 100, 100, (0, 0, 0), "resource/zaru.jpg","ざる"),
+            Card(400, 400, 100, 100, (0, 0, 0), "resource/rureto.jpg","るーれっと"),
+            Card(500, 400, 100, 100, (0, 0, 0), "resource/gyoza.jpg","ぎょうざ"),
+            Card(100, 500, 100, 100, (0, 0, 0), "resource/tora.jpg","とら"),
+            Card(200, 500, 100, 100, (0, 0, 0), "resource/kumi.jpg","くみたいそう"),
+            Card(300, 500, 100, 100, (0, 0, 0), "resource/taihu.jpg","たいふう"),
+            Card(400, 500, 100, 100, (0, 0, 0), "resource/tonkatu.jpg","とんかつ"),
+            Card(500, 500, 100, 100, (0, 0, 0), "resource/ryori.jpg","りょうり"),
             
         ]
 
